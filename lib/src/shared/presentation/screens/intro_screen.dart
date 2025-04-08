@@ -1,16 +1,40 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:habit_tracker_app_task/src/core/constants/app_strings.dart';
+import 'package:habit_tracker_app_task/src/core/extensions/context_extensions.dart';
+import 'package:habit_tracker_app_task/src/core/extensions/widget_extensions.dart';
+import 'package:habit_tracker_app_task/src/core/routing/app_routes.dart';
 
-class IntroScreen extends StatelessWidget {
-  final String? errorMessage;
+class IntroScreen extends StatefulWidget {
+  const IntroScreen({super.key});
 
-  const IntroScreen({super.key, this.errorMessage});
+  @override
+  State<IntroScreen> createState() => _IntroScreenState();
+}
+
+class _IntroScreenState extends State<IntroScreen> {
+  @override
+  void initState() {
+    super.initState();
+    scheduleMicrotask(() {
+      Future.delayed(const Duration(seconds: 2), () {
+        context.navigateWithName(AppRoutes.habitListScreen);
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(errorMessage ?? AppStrings.somethingWentWrong),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            CircularProgressIndicator().withPadding(),
+            Text(AppStrings.appName, textAlign: TextAlign.center),
+          ],
+        ),
       ),
     );
   }

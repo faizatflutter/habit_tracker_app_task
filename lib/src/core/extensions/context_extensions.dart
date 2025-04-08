@@ -12,4 +12,8 @@ extension ContextExtensions on BuildContext {
   }
 
   ThemeData get theme => Theme.of(this);
+
+  navigateWithName(String routeName, {Object? arguments}) {
+    Navigator.pushNamed(this, routeName, arguments: arguments);
+  }
 }

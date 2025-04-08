@@ -14,7 +14,7 @@ void main() async {
   await Firebase.initializeApp();
 
   // Set up dependency injection
-  await initInjections();
+  initInjections();
 
   runApp(const MiniHabitApp());
 }
