@@ -18,8 +18,5 @@ class MarkHabitAsDoneEvent extends HabitEvent {
   final String habitId;
   final DateTime date;
 
-  MarkHabitAsDoneEvent({
-    required this.habitId,
-    required this.date,
-  });
+  MarkHabitAsDoneEvent({required this.habitId, required this.date});
 }

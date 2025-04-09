@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:habit_tracker_app_task/src/core/constants/app_strings.dart';
 import 'package:habit_tracker_app_task/src/features/habit_tracker/data/data_sources/remote_data_source.dart';
 import 'package:habit_tracker_app_task/src/features/habit_tracker/data/models/habit_model.dart';
 import 'package:habit_tracker_app_task/src/features/habit_tracker/domain/entity/habit.dart';
@@ -26,7 +27,7 @@ class HabitRepositoryImpl implements HabitRepository {
       await remoteDataSource.addHabit(habitModel);
       return Right(null);
     } on FirebaseException catch (e) {
-      return Left(ServerFailure(e.message ?? 'Server error'));
+      return Left(ServerFailure(e.message ?? AppStrings.serverError));
     } catch (e) {
       return Left(UnknownFailure(e.toString()));
     }
@@ -38,7 +39,7 @@ class HabitRepositoryImpl implements HabitRepository {
       List<Habit> habits = await remoteDataSource.getAllHabits();
       return Right(habits);
     } on FirebaseException catch (e) {
-      return Left(ServerFailure(e.message ?? 'Server error'));
+      return Left(ServerFailure(e.message ?? AppStrings.serverError));
     } catch (e) {
       return Left(UnknownFailure(e.toString()));
     }
@@ -47,12 +48,12 @@ class HabitRepositoryImpl implements HabitRepository {
   @override
   Future<Either<Failure, void>> markHabitDone(String habitId, DateTime date) async {
     try {
-      final result = await remoteDataSource.markHabitAsDone(habitId, date);
+      await remoteDataSource.markHabitAsDone(habitId, date);
       return Right(null);
     } on FirebaseException catch (e) {
-      return Left(ServerFailure(e.message ?? 'Server error while marking habit'));
+      return Left(ServerFailure(e.message ?? AppStrings.serverError));
     } catch (e) {
-      return Left(UnknownFailure('Unknown error: ${e.toString()}'));
+      return Left(UnknownFailure(e.toString()));
     }
   }
 }

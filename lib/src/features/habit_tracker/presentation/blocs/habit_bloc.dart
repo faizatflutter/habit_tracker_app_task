@@ -19,24 +19,16 @@ class HabitBloc extends Bloc<HabitEvent, HabitState> {
     on<MarkHabitAsDoneEvent>(_onMarkHabitAsDone);
   }
 
-  Future<void> _onLoadHabits(
-    LoadHabitsEvent event,
-    Emitter<HabitState> emit,
-  ) async {
+  Future<void> _onLoadHabits(LoadHabitsEvent event, Emitter<HabitState> emit) async {
     emit(HabitLoadingState());
-
     final result = await getHabitsUseCase();
-
     result.fold(
       (failure) => emit(HabitErrorState(failure.message)),
       (habits) => emit(HabitLoadedState(habits)),
     );
   }
 
-  Future<void> _onAddHabit(
-    AddHabitEvent event,
-    Emitter<HabitState> emit,
-  ) async {
+  Future<void> _onAddHabit(AddHabitEvent event, Emitter<HabitState> emit) async {
     final habit = Habit(
       id: '',
       // Firestore will generate it
@@ -55,10 +47,7 @@ class HabitBloc extends Bloc<HabitEvent, HabitState> {
     );
   }
 
-  Future<void> _onMarkHabitAsDone(
-    MarkHabitAsDoneEvent event,
-    Emitter<HabitState> emit,
-  ) async {
+  Future<void> _onMarkHabitAsDone(MarkHabitAsDoneEvent event, Emitter<HabitState> emit) async {
     final result = await markHabitAsDoneUseCase(event.habitId, event.date);
 
     result.fold(

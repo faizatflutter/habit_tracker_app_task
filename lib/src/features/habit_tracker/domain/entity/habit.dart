@@ -14,4 +14,28 @@ class Habit {
     required this.streakCount,
     required this.completedDates,
   });
+
+  bool isCompletedToday() {
+    final today = DateTime.now();
+    return completedDates.any(
+      (date) => date.year == today.year && date.month == today.month && date.day == today.day,
+    );
+  }
+
+  int get currentStreak {
+    final sortedDates = [...completedDates]..sort((a, b) => b.compareTo(a));
+    int streak = 0;
+    DateTime today = DateTime.now();
+
+    for (final date in sortedDates) {
+      final diff = today.difference(date).inDays;
+      if (diff == 0 || diff == streak) {
+        streak++;
+        today = today.subtract(const Duration(days: 1));
+      } else {
+        break;
+      }
+    }
+    return streak;
+  }
 }
