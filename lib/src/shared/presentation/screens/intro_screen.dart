@@ -19,7 +19,7 @@ class _IntroScreenState extends State<IntroScreen> {
     super.initState();
     scheduleMicrotask(() {
       Future.delayed(const Duration(seconds: 2), () {
-        context.navigateWithName(AppRoutes.habitListScreen);
+        context.navigateAndReplaceWithName(AppRoutes.habitListScreen);
       });
     });
   }

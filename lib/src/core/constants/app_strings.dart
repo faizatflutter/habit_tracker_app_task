@@ -1,4 +1,6 @@
 class AppStrings {
+  static const noInternetConnection = "No internet connection. Please try again";
+  static const youAreBackOnline = "You are back online :)";
   static const somethingWentWrong = "Something Went Wrong";
   static const noRouteDefinedFor = "No route defined for";
   static const habitNotFound = "Habit not found";
