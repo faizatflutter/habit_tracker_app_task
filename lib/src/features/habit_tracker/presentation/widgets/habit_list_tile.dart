@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habit_tracker_app_task/src/core/constants/app_colors.dart';
 import 'package:habit_tracker_app_task/src/core/extensions/string_extensions.dart';
 import 'package:habit_tracker_app_task/src/features/habit_tracker/domain/entity/habit.dart';
 
@@ -22,11 +23,11 @@ class HabitListTile extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppStyles.whiteColor,
           borderRadius: BorderRadius.circular(14),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.08),
+              color: AppStyles.shadowColor,
               blurRadius: 8,
               offset: const Offset(0, 4),
             ),
@@ -37,7 +38,7 @@ class HabitListTile extends StatelessWidget {
           title: Text(
             habit.name,
             style: const TextStyle(
-              fontSize: 18,
+              fontSize: 20,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -45,10 +46,7 @@ class HabitListTile extends StatelessWidget {
             padding: const EdgeInsets.only(top: 6),
             child: Text(
               '🔥 Streak: $streak   •   ⏱️ ${habit.frequency.capitalize()}',
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.grey[700],
-              ),
+              style: TextStyle(fontSize: 14, color: AppStyles.lightTextColor),
             ),
           ),
           trailing: Container(
@@ -74,7 +72,7 @@ class HabitListTile extends StatelessWidget {
                       isCompletedToday ? 'Done' : 'Mark Done',
                       style: const TextStyle(
                         fontSize: 14,
-                        color: Colors.white,
+                        color: AppStyles.whiteColor,
                         fontWeight: FontWeight.w500,
                       ),
                     ),

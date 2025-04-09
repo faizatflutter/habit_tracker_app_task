@@ -3,6 +3,7 @@ class AppStrings {
   static const noRouteDefinedFor = "No route defined for";
   static const habitNotFound = "Habit not found";
   static const appName = "Mini Habit Tracker Task";
+  static const loadingHabits = "Loading Habits";
   static const habits = "My Habits";
   static const noHabitsAddedYet = "No habits added yet.";
   static const serverError = "Server error";

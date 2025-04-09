@@ -60,11 +60,11 @@ class HabitListScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
-                      Icon(Icons.self_improvement_outlined, size: 80, color: Colors.grey),
+                      Icon(Icons.self_improvement_outlined, size: 100, color: Colors.grey),
                       SizedBox(height: 20),
                       Text(
                         AppStrings.noHabitsAddedYet,
-                        style: TextStyle(fontSize: 16, color: Colors.black54),
+                        style: TextStyle(fontSize: 22, color: AppStyles.darkTextColor),
                       ),
                     ],
                   ).withPaddingHorizontal(20),
@@ -102,7 +102,7 @@ class HabitListScreen extends StatelessWidget {
               return Center(
                 child: Text(
                   state.message,
-                  style: const TextStyle(color: AppColors.errorColor),
+                  style: const TextStyle(color: AppStyles.errorColor),
                 ).withPaddingAll(),
               );
             }
@@ -113,8 +113,8 @@ class HabitListScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _openAddHabitBottomSheet(context),
-        backgroundColor: AppColors.buttonColor,
-        foregroundColor: AppColors.whiteColor,
+        backgroundColor: AppStyles.buttonColor,
+        foregroundColor: AppStyles.whiteColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
         child: const Icon(Icons.add),
       ),

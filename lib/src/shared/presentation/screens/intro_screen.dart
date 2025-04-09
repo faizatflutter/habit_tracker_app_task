@@ -32,7 +32,7 @@ class _IntroScreenState extends State<IntroScreen> {
           mainAxisSize: MainAxisSize.min,
           children: [
             CircularProgressIndicator().withPaddingAll(),
-            Text(AppStrings.appName, textAlign: TextAlign.center),
+            Text(AppStrings.loadingHabits, textAlign: TextAlign.center),
           ],
         ),
       ),

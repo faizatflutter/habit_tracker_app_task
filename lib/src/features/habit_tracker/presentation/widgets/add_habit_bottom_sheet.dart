@@ -84,7 +84,7 @@ class _AddHabitBottomSheetState extends State<AddHabitBottomSheet> {
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
                 decoration: BoxDecoration(
-                  border: Border.all(color: AppColors.borderColor, width: 1.0),
+                  border: Border.all(color: AppStyles.borderColor, width: 1.0),
                   borderRadius: BorderRadius.circular(AppConstants.borderRadius),
                 ),
                 child: Row(
@@ -94,7 +94,7 @@ class _AddHabitBottomSheetState extends State<AddHabitBottomSheet> {
                       '${AppStrings.startDate}: ${_formatDate(_startDate)}',
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
-                    const Icon(Icons.calendar_today_rounded, color: AppColors.buttonColor),
+                    const Icon(Icons.calendar_today_rounded, color: AppStyles.buttonColor),
                   ],
                 ),
               ),
@@ -114,13 +114,13 @@ class _AddHabitBottomSheetState extends State<AddHabitBottomSheet> {
                   }
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.buttonColor,
+                  backgroundColor: AppStyles.buttonColor,
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(AppConstants.borderRadius),
                   ),
                 ),
-                child: const Text(AppStrings.submit, style: TextStyle(color: AppColors.whiteColor)),
+                child: const Text(AppStrings.submit, style: TextStyle(color: AppStyles.whiteColor)),
               ),
             ),
           ],
